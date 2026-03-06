@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
@@ -16,16 +16,16 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  return (
-    <AuthContext.Provider
-      value={{
+  return React.createElement(
+    AuthContext.Provider,
+    {
+      value: {
         user,
         setUser,
         token,
         setToken,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+      },
+    },
+    children
   );
 };

@@ -26,7 +26,7 @@ exports.register = async ({ name, email, password }) => {
   return { user, verifyToken };
 };
 
-/* LOGIN */
+
 exports.login = async ({ email, password }) => {
   const user = await User.findOne({ email }).select("+password");
 
